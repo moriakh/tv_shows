@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>TV Shows - Edit</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <a href="../shows">Go Back</a>
+    <div class="container">
+        <div class="row text-center mb-3">
+            <h1 class="mb-3 me-3">Add a New Show</h1>
+            <div class="col">
+                <form action="/add_show" method="POST">
+                    {% csrf_token %}
+                    <div class="mb-e me-3 text-center">
+                        <label for="title" class="form-label">Title:</label>
+                        <input type="text" name="title" class="form-control input-index mx-auto" required />
+                    </div>
+                    <div class="row text-center">
+                        <div class="col mb-3 text-center">
+                            <label for="network" class="form-label">Network</label>
+                            <select id="network_id" type="text" name="network_id" class="form-control input-index mx-auto" required>
+                                {% for network in networks %}
+                                    <option value="{{network.id}}">{{network.name}}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                        <div class="col mb-3 me-3 text-center">
+                            <label for="date" class="form-label">Release date:</label>
+                            <input type="date" name="release_date" class="text-center form-control input-index mx-auto" value="2000-03-07" required />
+                        </div>
+                    </div>
+                    <div class="mb-3 me-3 text-center">
+                        <label for="desc" class="form-label">Description:</label>
+                        <textarea type="text" class="form-control" name="desc" id="desc" rows="3"></textarea>
+                    </div>
+                    <div class="text-center">
+                        <button type="submit" class="shadow btn btn-success">Create</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
