@@ -32,7 +32,7 @@
                         <td>{{ tv_show.title }}</td>
                         <td>{{ tv_show.network }}</td>
                         <td>{{ tv_show.release_date }}</td>
-                        <td><a href="shows/{{ tv_show.id }}">Show ¦ </a> <a href="/{{ tv_show.id }}/edit">Edit ¦ </a> <a href="/{{ tv_show.id }}/destroy">Delete</a></td>
+                        <td><a href="shows/{{ tv_show.id }}">Show ¦ </a> <a href="shows/{{ tv_show.id }}/edit">Edit ¦ </a> <a href="shows/{{ tv_show.id }}/destroy">Delete</a></td>
                     </tr>
                 {% endfor %}
             </table>
