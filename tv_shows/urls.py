@@ -9,4 +9,7 @@ urlpatterns = [
     path('shows/<int:tv_show_id>/update', views.update, name = "update"),
     path('shows/new', views.new_show, name = "new_show"),
     path('add_show', views.add_show, name = "add_show"),
+    path('register', views.register, name = "register"),
+    path('login', views.login, name = "login"),
+    path('logout', views.logout, name = "logout")
 ]
